@@ -1,0 +1,14 @@
+<h1>All obligations</h1>
+<%= link_to 'New obligation', new_obligation_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+  <% @obligations.each do |obligation| %>
+    <tr>
+      <td><%= obligation.title %></td>
+      <td><%= link_to 'Show', obligation_path(obligation) %></td>
+    </tr>
+  <% end %>
+</table>

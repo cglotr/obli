@@ -1,4 +1,8 @@
 class ObligationsController < ApplicationController
+  def index
+    @obligations = Obligation.all
+  end
+
   def show
     @obligation = Obligation.find(params[:id])
   end
