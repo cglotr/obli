@@ -1,5 +1,13 @@
 <h1>New obligation</h1>
 <%= form_with url: obligations_path, scope: :obligation, local: true do |form| %>
+  <% if @obligation.errors.any? %>
+    <h2>Obligation save <%= 'error'.pluralize(@obligation.errors.count) %>:</h2>
+    <ul>
+      <% @obligation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form.label :title %>
   <%= form.text_field :title %>
   <%= form.submit %>

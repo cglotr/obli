@@ -8,12 +8,16 @@ class ObligationsController < ApplicationController
   end
 
   def new
+    @obligation = Obligation.new
   end
 
   def create
     @obligation = Obligation.new(obligation_params)
-    @obligation.save
-    redirect_to @obligation
+    if @obligation.save
+      redirect_to @obligation
+    else
+      render :new
+    end
   end
 
   private
