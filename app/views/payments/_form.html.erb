@@ -1,0 +1,7 @@
+<%= form_with model: [ @obligation, Payment.new ] do |form| %>
+  <p>
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+  </p>
+  <p><%= form.submit %></p>
+<% end %>

@@ -5,6 +5,13 @@ class PaymentsController < ApplicationController
     redirect_to obligation_path(@obligation)
   end
 
+  def destroy
+    @obligation = Obligation.find(params[:obligation_id])
+    @payment = @obligation.payments.find(params[:id])
+    @payment.destroy
+    redirect_to obligation_path(@obligation)
+  end
+
   private
 
     def payment_params

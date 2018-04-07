@@ -12,9 +12,7 @@
       <td><%= obligation.title %></td>
       <td><%= link_to 'Show', obligation_path(obligation) %></td>
       <td><%= link_to 'Edit', edit_obligation_path(obligation) %></td>
-      <td><%= link_to 'Destroy', obligation_path(obligation),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Delete', obligation_path(obligation), method: :delete %></td>
     </tr>
   <% end %>
 </table>

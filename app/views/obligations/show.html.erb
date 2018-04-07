@@ -1,27 +1,10 @@
 <h1>Obligation</h1>
 <p><strong>Title:</strong> <%= @obligation.title %></p>
 <h2>New payment</h2>
-<%= form_with model: [ @obligation, @obligation.payments.build ] do |form| %>
-  <p>
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </p>
-  <p><%= form.submit %></p>
-<% end %>
-<% if @obligation.payments.count > 0 %>
+<%= render 'payments/form' %>
+<% if @obligation.payments.any? %>
   <h2>Payments</h2>
-  <table>
-    <tr>
-      <th>Amount</th>
-      <th>Created At</th>
-    </tr>
-    <% @obligation.payments.each do |payment| %>
-      <tr>
-        <td><%= payment.amount %></td>
-        <td><%= payment.created_at.strftime('%Y-%m-%d') if payment.created_at %></td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render @obligation.payments %>
 <% end %>
 <%= link_to 'Edit', edit_obligation_path(@obligation) %>
 <%= link_to 'Back', obligations_path %>
