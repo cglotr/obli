@@ -3,12 +3,14 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Link</th>
+    <th></th>
+    <th></th>
   </tr>
   <% @obligations.each do |obligation| %>
     <tr>
       <td><%= obligation.title %></td>
       <td><%= link_to 'Show', obligation_path(obligation) %></td>
+      <td><%= link_to 'Edit', edit_obligation_path(obligation) %></td>
     </tr>
   <% end %>
 </table>

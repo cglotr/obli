@@ -11,12 +11,25 @@ class ObligationsController < ApplicationController
     @obligation = Obligation.new
   end
 
+  def edit
+    @obligation = Obligation.find(params[:id])
+  end
+
   def create
     @obligation = Obligation.new(obligation_params)
     if @obligation.save
       redirect_to @obligation
     else
       render :new
+    end
+  end
+
+  def update
+    @obligation = Obligation.find(params[:id])
+    if @obligation.update(obligation_params)
+      redirect_to @obligation
+    else
+      render :edit
     end
   end
 
