@@ -33,6 +33,12 @@ class ObligationsController < ApplicationController
     end
   end
 
+  def destroy
+    @obligation = Obligation.find(params[:id])
+    @obligation.destroy
+    redirect_to obligations_path
+  end
+
   private
 
     def obligation_params

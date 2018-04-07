@@ -1,15 +1,3 @@
 <h1>Update obligation</h1>
-<%= form_with(model: @obligation) do |form| %>
-  <% if @obligation.errors.any? %>
-    <h2><%= 'Error'.pluralize(@obligation.errors.count) %>:</h2>
-    <ul>
-      <% @obligation.errors.full_messages do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <%= form.submit %>
-<% end %>
+<%= render 'form' %>
 <%= link_to 'Back', obligation_path(@obligation) %>

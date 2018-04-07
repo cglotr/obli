@@ -5,12 +5,16 @@
     <th>Title</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
   <% @obligations.each do |obligation| %>
     <tr>
       <td><%= obligation.title %></td>
       <td><%= link_to 'Show', obligation_path(obligation) %></td>
       <td><%= link_to 'Edit', edit_obligation_path(obligation) %></td>
+      <td><%= link_to 'Destroy', obligation_path(obligation),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
