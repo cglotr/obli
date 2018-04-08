@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rails5Project</title>
+    <title>Obli</title>
     <%= csrf_meta_tags %>
 
     <meta charset="utf-8">
@@ -12,13 +12,9 @@
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% unless user_signed_in? %>
-      <%= link_to 'Sign in', new_user_session_path %>
-    <% else %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% end %>
     <%= yield %>
   </body>
 </html>
