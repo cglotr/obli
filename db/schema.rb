@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180407100529) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "amount"
+    t.decimal "amount", precision: 8, scale: 2
     t.bigint "obligation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
