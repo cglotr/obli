@@ -1,6 +1,10 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @obligation = Obligation.find(params[:obligation_id])
+  end
+
   def create
     @obligation = Obligation.find(params[:obligation_id])
     @payment = @obligation.payments.create(payment_params)

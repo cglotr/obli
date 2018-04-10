@@ -1,7 +1,6 @@
 <h1>Obligation</h1>
 <p><strong>Title:</strong> <%= @obligation.title %></p>
-<h2>New payment</h2>
-<%= render 'payments/form' %>
+<%= link_to 'New payment', new_obligation_payment_path(@obligation) %>
 <% if @obligation.payments.any? %>
   <h2>Payments</h2>
   <%= render @obligation.payments %>
