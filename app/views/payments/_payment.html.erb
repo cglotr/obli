@@ -1,3 +1,5 @@
-<p><strong>Amount: </strong><%= payment.amount %></p>
-<p><strong>Created At: </strong><%= payment.created_at.strftime('%Y-%m-%d') if payment.created_at %></p>
-<p><%= link_to 'Delete', obligation_payment_path(@obligation, payment), method: :delete %></p>
+<li class="list-group-item">
+  <p><%= payment.created_at.strftime('%Y-%m-%d') if payment.created_at %></p>
+  <p>RM <%= payment.amount %></p>
+  <%= link_to 'Delete', obligation_payment_path(@obligation, payment), method: :delete, class: 'btn btn-danger' %>
+</li>

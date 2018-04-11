@@ -1,9 +1,14 @@
-<h1>Obligation</h1>
-<p><strong>Title:</strong> <%= @obligation.title %></p>
-<%= link_to 'New payment', new_obligation_payment_path(@obligation) %>
-<% if @obligation.payments.any? %>
-  <h2>Payments</h2>
-  <%= render @obligation.payments %>
-<% end %>
-<%= link_to 'Edit', edit_obligation_path(@obligation) %>
-<%= link_to 'Back', obligations_path %>
+<div class="card">
+  <div class="card-body">
+    <h1><%= @obligation.title %></h1>
+    <%= link_to 'New payment', new_obligation_payment_path(@obligation), class: 'btn btn-success' %>
+    <%= link_to 'Edit', edit_obligation_path(@obligation), class: 'btn btn-dark' %>
+    <%= link_to 'Back', obligations_path, class: 'btn btn-dark' %>
+    <% if @obligation.payments.any? %>
+      <h2>Payments</h2>
+      <ul class="list-group">
+        <%= render @obligation.payments %>
+      </ul>
+    <% end %>
+  </div>
+</div>
