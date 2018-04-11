@@ -1,18 +1,12 @@
-<h1>All obligations</h1>
-<%= link_to 'New obligation', new_obligation_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Obligations</h1>
+<%= link_to 'New obligation', new_obligation_path, class: 'btn btn-link' %>
+<ul class="list-group">
   <% @obligations.each do |obligation| %>
-    <tr>
-      <td><%= obligation.title %></td>
-      <td><%= link_to 'Show', obligation_path(obligation) %></td>
-      <td><%= link_to 'Edit', edit_obligation_path(obligation) %></td>
-      <td><%= link_to 'Delete', obligation_path(obligation), method: :delete %></td>
-    </tr>
+    <li class="list-group-item">
+      <h2><%= obligation.title %></h2>
+      <%= link_to 'Show', obligation_path(obligation), class: 'btn btn-link' %>
+      <%= link_to 'Edit', edit_obligation_path(obligation), class: 'btn btn-link' %>
+      <%= link_to 'Delete', obligation_path(obligation), method: :delete, data: { confirm: "Delete #{obligation.title}?" }, class: 'btn btn-link' %>
+    </li>
   <% end %>
-</table>
+</ul>

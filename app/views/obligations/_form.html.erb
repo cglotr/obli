@@ -1,15 +1,16 @@
-<%= form_with model: @obligation, local: true do |form| %>
-  <% if @obligation.errors.any? %>
-    <h2><%= 'Error'.pluralize(@obligation.errors.count) %></h2>
-    <ul>
-      <% @obligation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="card">
+  <div class="card-body">
+    <%= form_with model: @obligation, local: true do |form| %>
+      <% if @obligation.errors.any? %>
+        <% @obligation.errors.full_messages.each do |msg| %>
+          <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
       <% end %>
-    </ul>
-  <% end %>
-  <p>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </p>
-  <p><%= form.submit %></p>
-<% end %>
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+      <%= form.submit class: 'btn btn-link' %>
+    <% end %>
+  </div>
+</div>
