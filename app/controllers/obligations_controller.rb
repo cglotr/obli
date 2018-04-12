@@ -1,24 +1,23 @@
 class ObligationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
+  before_action :obligations, except: [:new]
+  before_action :obligation, except: [:index, :new, :create]
 
   def index
-    @obligations = Obligation.all
   end
 
   def show
-    @obligation = Obligation.find(params[:id])
   end
 
   def new
-    @obligation = Obligation.new
+    @obligation = current_user.obligations.build
   end
 
   def edit
-    @obligation = Obligation.find(params[:id])
   end
 
   def create
-    @obligation = Obligation.new(obligation_params)
+    @obligation = @obligations.build(obligation_params)
     if @obligation.save
       redirect_to @obligation
     else
@@ -27,7 +26,6 @@ class ObligationsController < ApplicationController
   end
 
   def update
-    @obligation = Obligation.find(params[:id])
     if @obligation.update(obligation_params)
       redirect_to @obligation
     else
@@ -36,12 +34,19 @@ class ObligationsController < ApplicationController
   end
 
   def destroy
-    @obligation = Obligation.find(params[:id])
     @obligation.destroy
     redirect_to obligations_path
   end
 
   private
+
+    def obligation
+      @obligation = @obligations.find(params[:id])
+    end
+
+    def obligations
+      @obligations = current_user.obligations
+    end
 
     def obligation_params
       params.require(:obligation).permit(:title)
