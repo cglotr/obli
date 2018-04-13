@@ -1,5 +1,5 @@
 <%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
 <%= render 'form' %>
 <%= link_to 'Delete', obligation_path(@obligation),
-  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link btn-block"
+  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block mt-3"
 %>

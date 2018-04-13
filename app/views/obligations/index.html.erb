@@ -5,7 +5,6 @@
       <h2><%= obligation.title %></h2>
       <%= link_to 'Show', obligation_path(obligation), class: 'btn btn-link' %>
       <%= link_to 'Edit', edit_obligation_path(obligation), class: 'btn btn-link' %>
-      <%= link_to 'Delete', obligation_path(obligation), method: :delete, data: { confirm: "Delete #{obligation.title}?" }, class: 'btn btn-link' %>
     </li>
   <% end %>
 </ul>
