@@ -1,5 +1,4 @@
 <li class="list-group-item">
   <h3><%= payment.created_at.strftime('%Y-%m-%d') %></h3>
   <p><%= number_to_currency(payment.amount, unit: 'RM', format: '%u %n') %></p>
-  <%= link_to 'Delete', obligation_payment_path(@obligation, payment), method: :delete, data: { confirm: "Delete this payment?" }, class: 'btn btn-link' %>
 </li>

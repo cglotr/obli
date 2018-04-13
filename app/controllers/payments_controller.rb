@@ -3,6 +3,13 @@ class PaymentsController < ApplicationController
   before_action :obligation, only: [:new, :create, :destroy]
 
   def new
+    @title = 'New payment'
+    @links = [
+      {
+        title: 'Back',
+        path: obligation_path(@obligation)
+      }
+    ]
   end
 
   def create

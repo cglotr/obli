@@ -1,3 +1,5 @@
-<h1>Update obligation</h1>
-<%= link_to 'Back', obligation_path(@obligation), class: 'btn btn-link' %>
+<%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
 <%= render 'form' %>
+<%= link_to 'Delete', obligation_path(@obligation),
+  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link btn-block"
+%>

@@ -14,15 +14,11 @@ class ObligationsController < ApplicationController
   end
 
   def show
-    @title = "#{@obligation.title} payments"
+    @title = "#{@obligation.title}"
     @links = [
       {
         title: 'New payment',
         path: new_obligation_payment_path(@obligation)
-      },
-      {
-        title: 'Edit',
-        path: edit_obligation_path(@obligation)
       },
       {
         title: 'Back',
@@ -36,12 +32,19 @@ class ObligationsController < ApplicationController
   end
 
   def edit
+    @title = 'Update obligation'
+    @links = [
+      {
+        title: 'Back',
+        path: obligation_path(@obligation)
+      }
+    ]
   end
 
   def create
     @obligation = @obligations.build(obligation_params)
     if @obligation.save
-      redirect_to @obligation
+      redirect_to obligations_path
     else
       render :new
     end
