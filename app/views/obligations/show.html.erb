@@ -1,7 +1,4 @@
-<h1><%= @obligation.title %> payments</h1>
-<%= link_to 'New payment', new_obligation_payment_path(@obligation), class: 'btn btn-link' %>
-<%= link_to 'Edit', edit_obligation_path(@obligation), class: 'btn btn-link' %>
-<%= link_to 'Back', obligations_path, class: 'btn btn-link' %>
+<%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
 <% if @obligation.payments.any? %>
   <ul class="list-group">
     <%= render @obligation.payments %>

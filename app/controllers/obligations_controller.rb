@@ -4,9 +4,31 @@ class ObligationsController < ApplicationController
   before_action :obligation, except: [:index, :new, :create]
 
   def index
+    @title = 'Obligations'
+    @links = [
+      {
+        title: 'New obligation',
+        path: new_obligation_path,
+      }
+    ]
   end
 
   def show
+    @title = "#{@obligation.title} payments"
+    @links = [
+      {
+        title: 'New payment',
+        path: new_obligation_payment_path(@obligation)
+      },
+      {
+        title: 'Edit',
+        path: edit_obligation_path(@obligation)
+      },
+      {
+        title: 'Back',
+        path: obligations_path
+      }
+    ]
   end
 
   def new

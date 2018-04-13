@@ -1,5 +1,4 @@
-<h1>Obligations</h1>
-<%= link_to 'New obligation', new_obligation_path, class: 'btn btn-link' %>
+<%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
 <ul class="list-group">
   <% @obligations.each do |obligation| %>
     <li class="list-group-item">

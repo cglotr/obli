@@ -1,0 +1,6 @@
+<h3 class="pl-1"><%= title %></h3>
+<ul class="nav">
+  <% links.each do |link| %>
+    <li class="nav-item"><%= link_to link[:title], link[:path], class: 'nav-link px-1 mr-1' %></li>
+  <% end %>
+</ul>
