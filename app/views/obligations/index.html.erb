@@ -1,10 +1,8 @@
 <%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
-<ul class="list-group">
+<div class="list-group">
   <% @obligations.each do |obligation| %>
-    <li class="list-group-item">
-      <h2><%= obligation.title %></h2>
-      <%= link_to 'Show', obligation_path(obligation), class: 'btn btn-link' %>
-      <%= link_to 'Edit', edit_obligation_path(obligation), class: 'btn btn-link' %>
-    </li>
+    <%= link_to obligation_path(obligation), class: 'list-group-item list-group-item-action' do %>
+      <h4 class="text-center"><%= obligation.title %></h4>
+    <% end %>
   <% end %>
-</ul>
+</div>

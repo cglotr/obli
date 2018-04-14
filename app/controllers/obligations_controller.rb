@@ -29,6 +29,13 @@ class ObligationsController < ApplicationController
 
   def new
     @obligation = current_user.obligations.build
+    @title = 'New obligation'
+    @links = [
+      {
+        title: 'Back',
+        path: obligations_path
+      }
+    ]
   end
 
   def edit
