@@ -1,6 +1,1 @@
 <%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
-<% if @obligation.payments.any? %>
-  <ul class="list-group">
-    <%= render @obligation.payments %>
-  </ul>
-<% end %>

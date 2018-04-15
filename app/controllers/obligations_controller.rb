@@ -21,6 +21,10 @@ class ObligationsController < ApplicationController
         path: new_obligation_payment_path(@obligation)
       },
       {
+        title: "Payments",
+        path: obligation_payments_path(@obligation)
+      },
+      {
         title: 'Back',
         path: obligations_path
       }

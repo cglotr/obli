@@ -1,6 +1,17 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :obligation, only: [:new, :create, :destroy]
+  before_action :obligation, only: [:index, :new, :create, :destroy]
+
+  def index
+    @payments = @obligation.payments.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
+    @title = "#{@obligation.title} payments"
+    @links = [
+      {
+        title: 'Back',
+        path: obligation_path(@obligation)
+      }
+    ]
+  end
 
   def new
     @title = 'New payment'
