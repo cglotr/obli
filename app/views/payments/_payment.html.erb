@@ -1,4 +1,3 @@
-<li class="list-group-item">
-  <h3><%= payment.created_at.strftime('%Y-%m-%d') %></h3>
-  <p><%= number_to_currency(payment.amount, unit: 'RM', format: '%u %n') %></p>
-</li>
+<%= link_to obligation_payment_path(@obligation, payment), class: "list-group-item list-group-item-action" do %>
+  <h4 class="text-center"><%= payment.created_at.strftime('%Y-%m-%d') %></h4>
+<% end %>
