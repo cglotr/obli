@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
 
   def index
     @payments = @obligation.payments.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
-    @title = "Payments"
+    @title = @obligation.title
     @links = [
       {
         title: 'Back',

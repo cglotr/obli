@@ -1,4 +1,7 @@
-<h3 class="text-center"><%= title %></h3>
+<h5 class="text-center">
+  <%= title %>
+  <small class="text-muted"><%= small_title %></small>
+</h5>
 <ul class="nav justify-content-end">
   <% links.each do |link| %>
     <li class="nav-item"><%= link_to link[:title], link[:path], class: 'nav-link px-1 mr-1' %></li>

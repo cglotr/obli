@@ -1,4 +1,4 @@
-<%= render partial: "layouts/content_header", locals: { title: @title, links: @links } %>
+<%= render partial: "layouts/content_header", locals: { title: @title, small_title: 'payment info', links: @links } %>
 <% @items.each do |item| %>
   <div class="text-center"><%= render partial: 'layouts/simple_item', locals: { item: item } %></div>
 <% end %>
