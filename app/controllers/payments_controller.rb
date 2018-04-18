@@ -15,7 +15,8 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    @title = 'Payment info'
+    @title = @obligation.title
+    @sub_title = 'payment'
     @links = [
       {
         title: 'Back',
@@ -27,6 +28,14 @@ class PaymentsController < ApplicationController
         title: 'Amount',
         content: "RM %.2f" % [@payment.amount]
       },
+      {
+        title: 'Created at',
+        content: @payment.created_at
+      },
+      {
+        title: 'Updated at',
+        content: @payment.updated_at
+      }
     ]
   end
 
