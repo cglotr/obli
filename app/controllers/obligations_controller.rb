@@ -85,6 +85,6 @@ class ObligationsController < ApplicationController
     end
 
     def obligation_params
-      params.require(:obligation).permit(:title)
+      params.require(:obligation).permit(:title, :currency)
     end
 end
