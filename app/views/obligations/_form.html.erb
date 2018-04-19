@@ -1,16 +1,12 @@
-<div class="card">
-  <div class="card-body">
-    <%= form_with model: @obligation, local: true do |form| %>
-      <% if @obligation.errors.any? %>
-        <% @obligation.errors.full_messages.each do |msg| %>
-          <div class="alert alert-danger"><%= msg %></div>
-        <% end %>
-      <% end %>
-      <div class="form-group">
-        <%= form.label :title %>
-        <%= form.text_field :title, class: 'form-control' %>
-      </div>
-      <%= form.submit class: 'btn btn-link' %>
+<%= form_with model: @obligation, local: true do |form| %>
+  <% if @obligation.errors.any? %>
+    <% @obligation.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
     <% end %>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
-</div>
+  <%= form.submit class: 'btn btn-link' %>
+<% end %>
