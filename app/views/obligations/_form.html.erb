@@ -5,11 +5,11 @@
     <% end %>
   <% end %>
   <div class="form-group">
-    <p class="text-center pb-1"><strong>title<strong></p>
+    <%= render 'layouts/center_p', text: "Title" %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <p class="text-center pb-1"><strong>currency<strong></p>
+    <%= render 'layouts/center_p', text: "Currency" %>
     <%= form.select :currency, options_for_select([['RM', 'MYR'], ['SGD', 'SGD']], 'MYR'), {}, { class: "custom-select" } %>
   </div>
   <div class="d-flex justify-content-end">

@@ -1,2 +1,4 @@
-<p><strong><%= item[:title].downcase %></strong></p>
-<p><%= item[:content] %></p>
+<div class="py-2">
+  <%= render 'layouts/center_p', text: item[:title] %>
+  <p class="text-center"><%= item[:content] %></p>
+</div>
