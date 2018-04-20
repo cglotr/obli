@@ -26,7 +26,7 @@ class PaymentsController < ApplicationController
     @items = [
       {
         title: 'Amount',
-        content: "RM %.2f" % [@payment.amount]
+        content: "#{@obligation.currency} %.2f" % [@payment.amount]
       },
       {
         title: 'Created at',
