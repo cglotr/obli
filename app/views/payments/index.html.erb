@@ -1,4 +1,4 @@
-<%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
+<%= render partial: 'layouts/content_header', locals: { title: @title, sub_title: @sub_title, links: @links } %>
 <%= will_paginate @payments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-end) %>
 <div class="list-group">
   <%= render @payments %>

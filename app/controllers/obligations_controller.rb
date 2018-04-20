@@ -15,9 +15,10 @@ class ObligationsController < ApplicationController
 
   def show
     @title = "#{@obligation.title}"
+    @sub_title = "recent payments"
     @links = [
       {
-        title: 'New payment',
+        title: 'New',
         path: new_obligation_payment_path(@obligation)
       },
       {
@@ -29,6 +30,7 @@ class ObligationsController < ApplicationController
         path: obligations_path
       }
     ]
+    @payments = @obligation.payments.order(created_at: :desc).limit(6)
   end
 
   def new

@@ -1,1 +1,1 @@
-<p class="text-center pb-1"><%= text.downcase %></p>
+<p class="text-center pb-1"><%= local_assigns[:dont_downcase] ? text : text.downcase %></p>
