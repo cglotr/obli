@@ -1,8 +1,4 @@
-<%= render partial: 'layouts/content_header', locals: { title: @title, links: @links } %>
+<%= render partial: 'layouts/content_header', locals: { title: @title, sub_title: @sub_title, links: @links } %>
 <div class="list-group">
-  <% @obligations.each do |obligation| %>
-    <%= link_to obligation_path(obligation), class: 'list-group-item list-group-item-action' do %>
-      <h4 class="text-center"><%= obligation.title %></h4>
-    <% end %>
-  <% end %>
+  <%= render @obligations %>
 </div>

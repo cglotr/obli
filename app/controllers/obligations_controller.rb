@@ -5,9 +5,10 @@ class ObligationsController < ApplicationController
 
   def index
     @title = 'Obligations'
+    @sub_title = 'all of them'
     @links = [
       {
-        title: 'New obligation',
+        title: 'New',
         path: new_obligation_path,
       }
     ]
@@ -83,7 +84,7 @@ class ObligationsController < ApplicationController
     end
 
     def obligations
-      @obligations = current_user.obligations
+      @obligations = current_user.obligations.order(title: :asc)
     end
 
     def obligation_params
