@@ -1,21 +1,23 @@
-<h3>Log in</h3>
+<%= render 'layouts/content_header', title: 'login', sub_title: 'sign in to obli', links: [] %>
 <%= render "devise/shared/links" %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
-    <%= f.label :email %>
+    <%= render 'layouts/center_p', text: "Email" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :password %>
+    <%= render 'layouts/center_p', text: "Password" %>
     <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
   </div>
   <% if devise_mapping.rememberable? -%>
-    <div class="form-check">
-      <%= f.check_box :remember_me, class: "form-check-input" %>
-      <%= f.label :remember_me, class: "form-check-label" %>
+    <div class="d-flex justify-content-center">
+      <div class="form-check">
+        <%= f.check_box :remember_me, class: "form-check-input" %>
+        <%= f.label :remember_me, class: "form-check-label" %>
+      </div>
     </div>
   <% end -%>
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-link" %>
+  <div class="actions d-flex justify-content-end">
+    <%= f.submit "[confirm]", class: "btn btn-link border-0 px-1 py-2" %>
   </div>
 <% end %>
