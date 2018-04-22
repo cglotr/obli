@@ -17,6 +17,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).click((e) => {
+$(document).click(function(e) {
   $("#flash").alert("close");
 });
