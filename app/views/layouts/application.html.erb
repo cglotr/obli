@@ -12,9 +12,9 @@
   </head>
 
   <body>
+    <%= render 'layouts/flash' %>
     <%= render 'layouts/navigation' %>
     <div id="main-container" class="container px-3 py-2">
-      <%= render 'layouts/flash' %>
       <%= yield %>
     </div>
     <div class="py-2 text-center">.</div>

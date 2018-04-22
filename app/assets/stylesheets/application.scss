@@ -12,6 +12,17 @@ label {
   padding-left: 0;
 }
 
+#flash {
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%);
+  width: 100%;
+  z-index: 99;
+}
+
 #main-container {
   margin-top: 56px;
   min-height: 150vh;
