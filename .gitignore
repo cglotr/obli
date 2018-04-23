@@ -22,3 +22,7 @@
 *~
 *.swp
 *.swo
+
+# Heroku files
+.env
+Procfile
