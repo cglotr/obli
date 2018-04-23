@@ -1,12 +1,12 @@
-<h3>Forgot your password?</h3>
+<%= render 'layouts/content_header', title: 'Reset password', sub_title: 'Send password reset email', links: [] %>
 <%= render "devise/shared/links" %>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
-    <%= f.label :email %><br />
+    <%= render 'layouts/center_p', text: 'Email' %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions", class: "btn btn-link" %>
+  <div class="actions d-flex justify-content-end">
+    <%= render 'layouts/submit_form', form: f, text: 'send' %>
   </div>
 <% end %>
