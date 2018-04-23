@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :obligation, only: [:index, :show, :new, :create, :destroy]
+  before_action :obligation, only: %i[index show new create destroy]
   before_action :payment, only: [:show]
 
   def index
@@ -27,7 +29,7 @@ class PaymentsController < ApplicationController
     @items = [
       {
         title: 'Amount',
-        content: "#{@obligation.currency} %.2f" % [@payment.amount]
+        content: format("#{@obligation.currency} %.2f", @payment.amount)
       },
       {
         title: 'Created at',
@@ -63,15 +65,15 @@ class PaymentsController < ApplicationController
 
   private
 
-    def obligation
-      @obligation = Obligation.find(params[:obligation_id])
-    end
+  def obligation
+    @obligation = Obligation.find(params[:obligation_id])
+  end
 
-    def payment
-      @payment = @obligation.payments.find(params[:id])
-    end
+  def payment
+    @payment = @obligation.payments.find(params[:id])
+  end
 
-    def payment_params
-      params.require(:payment).permit(:amount)
-    end
+  def payment_params
+    params.require(:payment).permit(:amount)
+  end
 end

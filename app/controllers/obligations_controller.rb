@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ObligationsController < ApplicationController
   before_action :authenticate_user!
   before_action :obligations, except: [:new]
-  before_action :obligation, except: [:index, :new, :create]
+  before_action :obligation, except: %i[index new create]
 
   def index
     @title = 'Obligations'
@@ -9,21 +11,21 @@ class ObligationsController < ApplicationController
     @links = [
       {
         title: 'New',
-        path: new_obligation_path,
+        path: new_obligation_path
       }
     ]
   end
 
   def show
-    @title = "#{@obligation.title}"
-    @sub_title = "recent payments"
+    @title = @obligation.title.to_s
+    @sub_title = 'recent payments'
     @links = [
       {
         title: 'New',
         path: new_obligation_payment_path(@obligation)
       },
       {
-        title: "Payments",
+        title: 'Payments',
         path: obligation_payments_path(@obligation)
       },
       {
@@ -79,15 +81,15 @@ class ObligationsController < ApplicationController
 
   private
 
-    def obligation
-      @obligation = @obligations.find(params[:id])
-    end
+  def obligation
+    @obligation = @obligations.find(params[:id])
+  end
 
-    def obligations
-      @obligations = current_user.obligations.order(title: :asc)
-    end
+  def obligations
+    @obligations = current_user.obligations.order(title: :asc)
+  end
 
-    def obligation_params
-      params.require(:obligation).permit(:title, :currency)
-    end
+  def obligation_params
+    params.require(:obligation).permit(:title, :currency)
+  end
 end
