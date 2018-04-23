@@ -1,7 +1,7 @@
 <% unless flash.empty? %>
   <div id="flash" class="alert border-0 d-flex flex-column justify-content-center m-0 px-3 py-0">
     <% flash.each do |type, msg| %>
-      <%= content_tag :div, msg.downcase, class: "text-center" %>
+      <%= content_tag :div, msg.downcase.tr('.', ''), class: "text-center" %>
     <% end %>
   </div>
 <% end %>
