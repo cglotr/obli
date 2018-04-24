@@ -8,3 +8,8 @@
 <div class="list-group">
   <%= render @payments %>
 </div>
+<% if @can_delete %>
+  <div class="alert alert-danger d-flex flex-column align-items-center">
+    <%= render 'layouts/button', title: 'delete', path: obligation_path(@obligation), method: :delete %>
+  </div>
+<% end %>

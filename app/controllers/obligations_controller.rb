@@ -35,6 +35,7 @@ class ObligationsController < ApplicationController
     ]
     @payments = @obligation.payments.order(created_at: :desc).limit(6)
     @this_month_payment = @payments.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).first
+    @can_delete = @obligation.created_at.between?(Time.now.beginning_of_day, Time.now.end_of_day)
   end
 
   def new

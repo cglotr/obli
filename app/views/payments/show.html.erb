@@ -2,3 +2,8 @@
 <% @items.each do |item| %>
   <%= render partial: 'layouts/simple_item', locals: { item: item } %>
 <% end %>
+<% if @can_delete %>
+  <div class="alert alert-danger d-flex flex-column align-items-center">
+    <%= render 'layouts/button', title: 'delete', path: obligation_payment_path(@obligation, @payment), method: :delete %>
+  </div>
+<% end %>

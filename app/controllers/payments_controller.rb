@@ -40,6 +40,7 @@ class PaymentsController < ApplicationController
         content: @payment.updated_at
       }
     ]
+    @can_delete = @payment.created_at.between?(Time.now.beginning_of_day, Time.now.end_of_day)
   end
 
   def new
