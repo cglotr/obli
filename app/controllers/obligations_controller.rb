@@ -34,6 +34,7 @@ class ObligationsController < ApplicationController
       }
     ]
     @payments = @obligation.payments.order(created_at: :desc).limit(6)
+    @this_month_payment = @payments.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).first
   end
 
   def new
