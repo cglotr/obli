@@ -51,6 +51,11 @@ class PaymentsController < ApplicationController
         path: obligation_path(@obligation)
       }
     ]
+    recent_payments_set = Set[]
+    @obligation.payments.each do |payment|
+      recent_payments_set.add(payment.amount)
+    end
+    @recent_payments = recent_payments_set.to_a.first(5)
   end
 
   def create
