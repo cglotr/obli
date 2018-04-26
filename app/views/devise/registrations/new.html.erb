@@ -1,23 +1,20 @@
-<h3>Sign up</h3>
+<%= render 'layouts/content_header', title: 'Sign up', sub_title: 'Make an obli account', links: [] %>
 <%= render "devise/shared/links" %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
-    <%= f.label :email %>
+    <%= render 'layouts/center_p', text: 'Email' %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
+    <%= render 'layouts/center_p', text: 'Password' %>
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :password_confirmation %>
+    <%= render 'layouts/center_p', text: "Password confirmation" %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-link" %>
+  <div class="actions d-flex justify-content-end">
+    <%= render 'layouts/submit_form', form: f, text: 'Confirm' %>
   </div>
 <% end %>
