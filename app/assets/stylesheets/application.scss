@@ -12,6 +12,10 @@ label {
   padding-left: 0;
 }
 
+.list-group-item:first-child {
+  border-top: 0;
+}
+
 #flash {
   background-color: rgba(255, 255, 255, 0.95);
   height: 100%;
