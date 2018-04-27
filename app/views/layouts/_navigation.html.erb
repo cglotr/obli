@@ -1,8 +1,10 @@
 <div id="main-navigation" class="navbar navbar-light fixed-top border-bottom" role="navigation">
   <%= link_to 'obli', root_path, { class: 'navbar-brand' } %>
-  <% unless user_signed_in? %>
-    <%= link_to '[login]', new_user_session_path %>
-  <% else %>
-    <%= link_to '[logout]', destroy_user_session_path, method: :delete %>
-  <% end %>
+  <% unless @hide_nav_access %>
+    <% unless user_signed_in? %>
+      <%= link_to '[sign in]', new_user_session_path %>
+    <% else %>
+      <%= link_to '[sign out]', destroy_user_session_path, method: :delete %>
+    <% end %>
+ <% end %>
 </div>
