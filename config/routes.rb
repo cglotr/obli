@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :payments
   end
 
-  root 'obligations#index'
+  root 'welcome#hello'
 end
