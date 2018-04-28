@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     path_names: { sign_in: "signin", sign_up: "signup" }
 
   get 'welcome/index'
-  get '*path', to: 'obligations#index'
 
   resources :obligations do
     resources :payments
   end
 
   root 'welcome#hello'
+  get '*path', to: 'obligations#index'
 end
