@@ -7,10 +7,10 @@ class ObligationsController < ApplicationController
 
   def index
     @title = "Obligations"
-    @sub_title = "all of them"
+    @sub_title = "your payment obligations"
     @links = [
       {
-        title: "New",
+        title: "New obligation",
         path: new_obligation_path
       }
     ]

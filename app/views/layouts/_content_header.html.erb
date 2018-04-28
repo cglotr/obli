@@ -2,7 +2,7 @@
 <% if local_assigns[:sub_title] %>
   <p class="text-center text-muted"><%= sub_title.downcase %></p>
 <% end %>
-<ul class="nav justify-content-end">
+<ul class="nav justify-content-center">
   <% links.each do |link| %>
     <li class="nav-item"><%= render 'layouts/button', { title: link[:title], path: link[:path] } %></li>
   <% end %>
