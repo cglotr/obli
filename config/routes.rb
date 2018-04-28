@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     controllers: {},
     path: '',
     path_names: { sign_in: "signin", sign_up: "signup" }
+
   get 'welcome/index'
+  get '*path', to: 'obligations#index'
+
   resources :obligations do
     resources :payments
   end
-  root 'obligations#index'
+
+  root 'welcome#hello'
 end
