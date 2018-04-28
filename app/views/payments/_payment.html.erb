@@ -1,4 +1,4 @@
 <%= link_to obligation_payment_path(@obligation, payment), class: 'list-group-item list-group-item-action' do %>
-  <%= render 'layouts/center_p', text: payment.created_at.strftime('%Y-%m-%d') %>
+  <u><%= render 'layouts/center_p', text: payment.created_at.strftime('%Y-%m-%d') %></u>
   <%= render 'layouts/center_p', text: "#{@obligation.currency} #{payment.amount}", dont_downcase: true %>
 <% end %>
