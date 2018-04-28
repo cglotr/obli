@@ -8,10 +8,10 @@ class PaymentsController < ApplicationController
   def index
     @payments = @obligation.payments.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
     @title = @obligation.title
-    @sub_title = 'payments history'
+    @sub_title = "payments history"
     @links = [
       {
-        title: 'Back',
+        title: "Back",
         path: obligation_path(@obligation)
       }
     ]
@@ -19,24 +19,24 @@ class PaymentsController < ApplicationController
 
   def show
     @title = @obligation.title
-    @sub_title = 'payment'
+    @sub_title = "payment"
     @links = [
       {
-        title: 'Back',
+        title: "Back",
         path: obligation_payments_path(@obligation)
       }
     ]
     @items = [
       {
-        title: 'Amount',
+        title: "Amount",
         content: format("#{@obligation.currency} %.2f", @payment.amount)
       },
       {
-        title: 'Created at',
+        title: "Created at",
         content: @payment.created_at
       },
       {
-        title: 'Updated at',
+        title: "Updated at",
         content: @payment.updated_at
       }
     ]
@@ -44,10 +44,10 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    @title = 'New payment'
+    @title = "New payment"
     @links = [
       {
-        title: 'Back',
+        title: "Back",
         path: obligation_path(@obligation)
       }
     ]
@@ -71,15 +71,15 @@ class PaymentsController < ApplicationController
 
   private
 
-  def obligation
-    @obligation = Obligation.find(params[:obligation_id])
-  end
+    def obligation
+      @obligation = Obligation.find(params[:obligation_id])
+    end
 
-  def payment
-    @payment = @obligation.payments.find(params[:id])
-  end
+    def payment
+      @payment = @obligation.payments.find(params[:id])
+    end
 
-  def payment_params
-    params.require(:payment).permit(:amount)
-  end
+    def payment_params
+      params.require(:payment).permit(:amount)
+    end
 end

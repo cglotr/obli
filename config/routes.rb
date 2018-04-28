@@ -3,15 +3,15 @@
 Rails.application.routes.draw do
   devise_for :users,
     controllers: {},
-    path: '',
+    path: "",
     path_names: { sign_in: "signin", sign_up: "signup" }
 
-  get 'welcome/index'
+  get "welcome/index"
 
   resources :obligations do
     resources :payments
   end
 
-  root 'welcome#hello'
-  get '*path', to: 'obligations#index'
+  root "welcome#hello"
+  get "*path", to: "obligations#index"
 end

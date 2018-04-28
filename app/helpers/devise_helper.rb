@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DeviseHelper
   # A simple way to show error messages for the current devise resource. If you need
   # to customize this method, you can either overwrite it in your application helpers or
@@ -8,7 +10,7 @@ module DeviseHelper
   def devise_error_messages!
     return "" if resource.errors.empty?
 
-    messages = resource.errors.full_messages.map { |msg| content_tag(:div, msg.downcase!, class: 'text-center') }.join
+    messages = resource.errors.full_messages.map { |msg| content_tag(:div, msg.downcase!, class: "text-center") }.join
     sentence = I18n.t(
       "errors.messages.not_saved",
       count: resource.errors.count,

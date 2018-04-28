@@ -6,11 +6,11 @@ class ObligationsController < ApplicationController
   before_action :obligation, except: %i[index new create]
 
   def index
-    @title = 'Obligations'
-    @sub_title = 'all of them'
+    @title = "Obligations"
+    @sub_title = "all of them"
     @links = [
       {
-        title: 'New',
+        title: "New",
         path: new_obligation_path
       }
     ]
@@ -18,18 +18,18 @@ class ObligationsController < ApplicationController
 
   def show
     @title = @obligation.title.to_s
-    @sub_title = 'recent payments'
+    @sub_title = "recent payments"
     @links = [
       {
-        title: 'New',
+        title: "New",
         path: new_obligation_payment_path(@obligation)
       },
       {
-        title: 'Payments',
+        title: "Payments",
         path: obligation_payments_path(@obligation)
       },
       {
-        title: 'Back',
+        title: "Back",
         path: obligations_path
       }
     ]
@@ -40,20 +40,20 @@ class ObligationsController < ApplicationController
 
   def new
     @obligation = current_user.obligations.build
-    @title = 'New obligation'
+    @title = "New obligation"
     @links = [
       {
-        title: 'Back',
+        title: "Back",
         path: obligations_path
       }
     ]
   end
 
   def edit
-    @title = 'Update obligation'
+    @title = "Update obligation"
     @links = [
       {
-        title: 'Back',
+        title: "Back",
         path: obligation_path(@obligation)
       }
     ]
@@ -83,15 +83,15 @@ class ObligationsController < ApplicationController
 
   private
 
-  def obligation
-    @obligation = @obligations.find(params[:id])
-  end
+    def obligation
+      @obligation = @obligations.find(params[:id])
+    end
 
-  def obligations
-    @obligations = current_user.obligations.order(title: :asc)
-  end
+    def obligations
+      @obligations = current_user.obligations.order(title: :asc)
+    end
 
-  def obligation_params
-    params.require(:obligation).permit(:title, :currency)
-  end
+    def obligation_params
+      params.require(:obligation).permit(:title, :currency)
+    end
 end

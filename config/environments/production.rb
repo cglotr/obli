@@ -23,7 +23,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -68,19 +68,19 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: 'obli.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: "obli.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.default charset: "utf-8"
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: "smtp.gmail.com",
     port: 587,
-    domain: ENV['GMAIL_DOMAIN'],
-    authentication: 'plain',
+    domain: ENV["GMAIL_DOMAIN"],
+    authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD']
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -97,7 +97,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV['RAILS_LOG_TO_STDOUT'].present?
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -107,4 +107,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-Rails.application.routes.default_url_options[:host] = 'obli.herokuapp.com'
+Rails.application.routes.default_url_options[:host] = "obli.herokuapp.com"
