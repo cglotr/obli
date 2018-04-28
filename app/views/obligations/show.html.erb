@@ -5,8 +5,10 @@
     <%= render 'layouts/button', title: 'pay', path: new_obligation_payment_path(@obligation) %>
   </div>
 <% end %>
-<div class="list-group">
-  <%= render @payments %>
+<div class="my-1">
+  <div class="list-group list-group-flush">
+    <%= render @payments %>
+  </div>
 </div>
 <% if @can_delete %>
   <div class="alert alert-danger d-flex flex-column align-items-center">
