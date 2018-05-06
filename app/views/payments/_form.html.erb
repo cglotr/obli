@@ -1,8 +1,6 @@
-<%= form_with model: [ @obligation, Payment.new ] do |form| %>
-  <% if @obligation.errors.any? %>
-    <% @obligation.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
+<%= form_for @payment, url: obligation_payments_path(@obligation) do |form| %>
+  <% if @payment.errors.any? %>
+    <%= render 'layouts/flash_alert', alerts: @payment.errors.full_messages %>
   <% end %>
   <div class="form-group">
     <%= render 'layouts/center_p', text: "Amount" %>
