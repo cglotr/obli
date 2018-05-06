@@ -11,12 +11,14 @@
       <%= form.number_field :amount, min: 0, step: 0.01, class: 'payment-amount-field form-control' %>
     </div>
   </div>
-  <%= render 'layouts/center_p', text: 'Recent payments:' %>
-  <div class="d-flex justify-content-center">
-    <% @recent_payments.each do |payment| %>
-      <div class="new-payment btn btn-link px-1">[<%= payment %>]</div>
-    <% end %>
-  </div>
+  <% if @recent_payments.any? %>
+    <%= render 'layouts/center_p', text: 'Recent payments' %>
+    <div class="d-flex justify-content-center">
+      <% @recent_payments.each do |payment| %>
+        <div class="new-payment btn btn-link px-1">[<%= payment %>]</div>
+      <% end %>
+    </div>
+  <% end %>
   <div class="d-flex justify-content-end">
     <%= render 'layouts/submit_form', form: form, text: 'Create' %>
   </div>
