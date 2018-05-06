@@ -1,8 +1,6 @@
 <%= form_with model: @obligation, local: true do |form| %>
   <% if @obligation.errors.any? %>
-    <% @obligation.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
+    <%= render 'layouts/flash_alert', alerts: @obligation.errors.full_messages %>
   <% end %>
   <div class="form-group">
     <%= render 'layouts/center_p', text: "Title" %>
@@ -10,9 +8,9 @@
   </div>
   <div class="form-group">
     <%= render 'layouts/center_p', text: "Currency" %>
-    <%= form.select :currency, options_for_select([['RM', 'MYR'], ['SGD', 'SGD']], 'MYR'), {}, { class: "custom-select" } %>
+    <%= form.select :currency, options_for_select([['MYR', 'MYR'], ['SGD', 'SGD']], 'MYR'), {}, { class: "custom-select" } %>
   </div>
-  <div class="d-flex justify-content-end">
+  <div class="d-flex justify-content-center">
     <%= render 'layouts/submit_form', form: form, text: 'Create' %>
   </div>
 <% end %>

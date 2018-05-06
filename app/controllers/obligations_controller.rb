@@ -10,7 +10,7 @@ class ObligationsController < ApplicationController
     @sub_title = "your payment obligations"
     @links = [
       {
-        title: "New obligation",
+        title: "New",
         path: new_obligation_path
       }
     ]
@@ -39,14 +39,8 @@ class ObligationsController < ApplicationController
   end
 
   def new
+    init_new
     @obligation = current_user.obligations.build
-    @title = "New obligation"
-    @links = [
-      {
-        title: "Back",
-        path: obligations_path
-      }
-    ]
   end
 
   def edit
@@ -64,6 +58,7 @@ class ObligationsController < ApplicationController
     if @obligation.save
       redirect_to obligations_path
     else
+      init_new
       render :new
     end
   end
@@ -82,6 +77,17 @@ class ObligationsController < ApplicationController
   end
 
   private
+
+    def init_new
+      @title = "New obligation"
+      @sub_title = 'Create a new payment obligation'
+      @links = [
+        {
+          title: "Back",
+          path: obligations_path
+        }
+      ]
+    end
 
     def obligation
       @obligation = @obligations.find(params[:id])

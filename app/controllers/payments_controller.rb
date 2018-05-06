@@ -44,23 +44,18 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    @title = "New payment"
-    @links = [
-      {
-        title: "Back",
-        path: obligation_path(@obligation)
-      }
-    ]
-    recent_payments_set = Set[]
-    @obligation.payments.each do |payment|
-      recent_payments_set.add(payment.amount)
-    end
-    @recent_payments = recent_payments_set.to_a.first(5)
+    init_new
+    @payment ||= Payment.new
   end
 
   def create
-    @payment = @obligation.payments.create(payment_params)
-    redirect_to obligation_path(@obligation)
+    @payment = @obligation.payments.build(payment_params)
+    if @payment.save
+      redirect_to obligation_path(@obligation)
+    else
+      init_new
+      render :new
+    end
   end
 
   def destroy
@@ -70,6 +65,22 @@ class PaymentsController < ApplicationController
   end
 
   private
+
+    def init_new
+      @title = "New payment"
+      @sub_title = "Create a new payment"
+      @links = [
+        {
+          title: "Back",
+          path: obligation_path(@obligation)
+        }
+      ]
+      recent_payments_set = Set[]
+      @obligation.payments.each do |payment|
+        recent_payments_set.add(payment.amount)
+      end
+      @recent_payments = recent_payments_set.to_a.first(5)
+    end
 
     def obligation
       @obligation = Obligation.find(params[:obligation_id])
