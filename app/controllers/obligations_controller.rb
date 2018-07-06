@@ -80,7 +80,7 @@ class ObligationsController < ApplicationController
 
     def init_new
       @title = "New obligation"
-      @sub_title = 'Create a new payment obligation'
+      @sub_title = "Create a new payment obligation"
       @links = [
         {
           title: "Back",
