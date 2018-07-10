@@ -1,23 +1,57 @@
 @import "bootstrap";
 
+$color-bulbasaur-base: #96cbae;
+$color-bulbasaur-eyes: #a84049;
+$opacity-flash: 0.5;
+$opacity-input: 0.5;
+$opacity-list-hover: 0.1;
+
+body, html {
+  background-color: $color-bulbasaur-base;
+}
+
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
+}
+
+input.form-control {
+  background-color: rgba(white, $opacity-input);
+
+  &:focus {
+    background-color: rgba(white, $opacity-input);
+  }
 }
 
 label {
   margin: 0;
 }
 
+select.custom-select {
+  background-color: rgba(white, $opacity-input);
+}
+
 .btn-link {
   padding-left: 0;
 }
 
-.list-group-item:first-child {
-  border-top: 0;
+.jumbotron.bg-white {
+  background-color: transparent !important;
+}
+
+.list-group-item {
+  background-color: transparent;
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  &:hover {
+    background-color: rgba($color-bulbasaur-eyes, $opacity-list-hover);
+  }
 }
 
 #flash {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(white, $opacity-flash);
   height: 100%;
   left: 50%;
   position: absolute;
